@@ -1,0 +1,41 @@
+<app-header-nav-dashboard></app-header-nav-dashboard>
+<div class="conatiner">
+
+
+<app-side-bar-superadmin class="sidebar1" (emitter)="listen($event)"></app-side-bar-superadmin>
+
+<main>
+    @if(pageName=="Actualities")
+    {
+        <app-actualities></app-actualities>
+    }
+    @if(pageName=="integration-plan")
+    {
+
+        <app-integration-plan></app-integration-plan>
+    }
+    @if(pageName=="function-sheet")
+    {
+        <app-function-sheet></app-function-sheet>
+    }
+
+    @if(pageName=="evaluation")
+    {
+        <app-get-evaluation></app-get-evaluation>
+    }
+    @if(pageName=="managment")
+    {
+        <app-managment></app-managment>
+    }
+    
+
+</main><div class="side"></div>
+
+<!-- <aside>
+    <app-aside></app-aside>
+</aside> -->
+</div>
+    
+    
+    
+    

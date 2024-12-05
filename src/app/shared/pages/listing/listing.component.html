@@ -1,0 +1,86 @@
+
+  <button (click)="openPopup('add')">Add User</button>
+
+  <app-popup [title]="'Add User'" [showPopup]="showAddPopup" (closePopup)="closePopup('add')">
+ 
+
+    <div class="modal-body">
+      <!-- Department Form -->
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="id">Id:</label>
+          <input type="number" id="id" formControlName="id" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="mat">Registration Number:</label>
+          <input type="number" id="mat" formControlName="mat" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" formControlName="firstName" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" formControlName="lastName" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" formControlName="password" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="idDep">Id Department:</label>
+          <input type="number" id="idDep" formControlName="idDep" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="idR">Id Role:</label>
+          <input type="number" id="idR" formControlName="idR" class="form-control" required>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="closePopup('add')">Close</button>
+      <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid" (click)="onSubmit()">Save</button>
+    </div>
+  </app-popup>
+
+
+
+  <div *ngIf="selectedTable === 'users'">
+    <table datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Matricule</th>
+          <th>Responsabl</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th *ngIf="showPassword">Password</th>
+          <th>Post ID</th>
+          <th>Role ID</th>
+          <th>Fiche Fonction</th>
+          <th>Integration Plan</th>
+          <th colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of userlist">
+          <td>{{item.id}}</td>
+          <td>{{item.mat}}</td>
+          <td>{{item.matResp}}</td>
+          <td>{{item.firstName}}</td>
+          <td>{{item.lastName}}</td>
+          <td *ngIf="showPassword">*****</td>
+          <td>{{item.idDep}}</td>
+          <td>{{item.idR}}</td>
+          <td>{{item.idFf}}</td>
+          <td>{{item.idIp}}</td>
+          <td colspan="2">
+            <button (click)="editUser(item.id)">Edit</button>
+            <button (click)="deleteUser(item.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

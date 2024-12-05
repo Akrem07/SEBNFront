@@ -1,0 +1,105 @@
+<div class="container">
+
+  <button (click)="openPopup('manage')">Manage Departments</button>
+
+  <app-popup [title]="'Manage Departments'" [showPopup]="showManagePopup" (closePopup)="closePopup('manage')" >
+    <button (click)="openPopup('add')">Add Department</button>
+
+  <app-popup [title]="'Add Department'" [showPopup]="showAddPopup" (closePopup)="closePopup('add')">
+ 
+
+    <div class="modal-body">
+      <!-- Department Form -->
+      <form [formGroup]="depForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="IdDep">Id:</label>
+          <input type="number" id="IdDep" formControlName="IdDep" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="NameDep">Department Name:</label>
+          <input type="text" id="NameDep" formControlName="NameDep" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="Post">Position:</label>
+          <input type="text" id="Post" formControlName="Post" class="form-control" required>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="closePopup('add')">Close</button>
+      <button type="submit" class="btn btn-primary" [disabled]="depForm.invalid" (click)="onSubmit()">Save</button>
+    </div>
+  </app-popup>
+
+  <div>
+    <button (click)="openPopup('edit')">Edit</button>
+  <app-popup [title]="'Edit Department'" [showPopup]="showEditPopup" (closePopup)="closePopup('edit')">
+    <div class="modal-body">
+      <!-- Department Form -->
+      <form [formGroup]="editForm" (ngSubmit)="onEdit()">
+        <div class="form-group">
+          <label for="IdDep">Id:</label>
+          <input type="number" id="IdDep" formControlName="IdDep" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="NameDep">Department Name:</label>
+          <input type="text" id="NameDep" formControlName="NameDep" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="Post">Position:</label>
+          <input type="text" id="Post" formControlName="Post" class="form-control" required>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="closePopup('edit')">Close</button>
+      <button type="submit" class="btn btn-primary" [disabled]="editForm.invalid" (click)="onEdit()">Save</button>
+    </div>
+  </app-popup>
+
+  </div>
+  <div>
+    <button (click)="openPopup('delete')">Delete</button>
+    <app-popup [title]="'Delete Department'" [showPopup]="showDeletePopup" (closePopup)="closePopup('delete')">
+      <div class="modal-body">
+        <!-- Department Form -->
+        <form [formGroup]="deleteForm" (ngSubmit)="onDelete()">
+          <div class="form-group">
+            <label for="IdDep">Id:</label>
+            <input type="number" id="IdDep" formControlName="IdDep" class="form-control" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closePopup('delete')">Close</button>
+        <button type="submit" class="btn btn-primary" [disabled]="deleteForm.invalid" (click)="onDelete()">Save</button>
+      </div>
+    </app-popup>
+  </div>
+  </app-popup>
+
+      <table datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger" >
+        <thead>
+          <tr>
+            <th>ID Department</th>
+            <th>Name Department</th>
+            <th>Post</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of deplist ; track $index) {
+            <tr>
+              <td>{{item.idDep}}</td>
+              <td>{{item.nameDep}}</td>
+              <td>{{item.post}}</td>
+              <td>
+                <button (click)="editDep(item.idDep)">Edit</button>
+                <button (click)="deleteDep(item.idDep)">Delete</button>
+            </tr>
+          }
+        </tbody>     
+    </table>
+</div>
+  

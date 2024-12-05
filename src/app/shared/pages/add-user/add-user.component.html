@@ -1,0 +1,46 @@
+<div class="parentcontainer">
+    <div class="formcontainer">
+      <form (ngSubmit)="onFormSubmit()">
+        <h2 style="text-align: center;">Add User</h2>
+        <div class="alertgroup">
+          <div *ngIf="FormValid === false;" style="color: rgb(182, 0, 0);" class="mb-2">
+            Please fill all fields
+          </div>
+          <div *ngIf="userExists === false" style="color: rgb(9, 100, 9);" class="mb-2">
+            Valid user ID
+          </div>
+          <div *ngIf="userExists === true" style="color: rgb(182, 0, 0);" class="mb-2">
+            User ID is taken
+          </div>
+        </div>
+        <div class="form-grid">
+          
+          <div class="form-group">
+            <label for="mat">Matricule</label>
+            <input [(ngModel)]="model.mat" name="mat" type="number" class="form-control" id="mat" placeholder="Matricule" (keyup)="checkUserExists($event); FormValid = true">
+          </div>
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input [(ngModel)]="model.firstName" name="firstName" type="text" class="form-control" id="firstName" placeholder="First Name" (keydown)="FormValid = true">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input [(ngModel)]="model.lastName" name="lastName" type="text" class="form-control" id="lastName" placeholder="Last Name" (keydown)="FormValid = true">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input [(ngModel)]="model.password" name="password" type="password" class="form-control" id="password" placeholder="Password" (keydown)="FormValid = true">
+          </div>
+          <div class="form-group">
+            <label for="idDep">Department ID</label>
+            <input [(ngModel)]="model.idDep" name="idDep" type="number" class="form-control" id="idDep" placeholder="Department ID" (keydown)="FormValid = true">
+          </div>
+          <div class="form-group">
+            <label for="idR">Role ID</label>
+            <input [(ngModel)]="model.idR" name="idR" type="number" class="form-control" id="idR" placeholder="Role ID" (keydown)="FormValid = true">
+          </div>
+        </div>
+        <button type="submit" class="btn btnz mt-3" [disabled]="userExists === true || FormValid === false">Submit</button>
+      </form>
+    </div>
+  </div>

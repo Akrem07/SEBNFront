@@ -1,0 +1,32 @@
+<app-header-nav-dashboard></app-header-nav-dashboard>
+<div class="conatiner">
+
+
+
+<app-side-bar-depmanager class="sidebar1" (emitter)="listen($event)"></app-side-bar-depmanager>
+<main>
+    @if(pageName=="Actualities")
+    {
+        <app-actualities></app-actualities>
+    }
+
+    @if(pageName=="function-sheet")
+    {
+        <app-function-sheet></app-function-sheet>
+    }
+
+    @if (pageName=="userlist") {
+       <app-dm-documents></app-dm-documents>
+    }
+
+</main>
+<div class="side"></div>
+
+<!-- <aside>
+    <app-aside></app-aside>
+</aside> -->
+</div>
+    
+    
+    
+    

@@ -1,0 +1,145 @@
+<div class="evaluation-form-container">
+  <!-- Conditionally display the form or the success message -->
+  <ng-container *ngIf="!formSubmitted; else submittedMessage">
+
+    <form [formGroup]="evaluationForm" #signupForm="ngForm" (ngSubmit)="submit(signupForm)">
+      <div class="evaluation-form-container">
+        <table class="evaluation-table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Très Satisfaisant</th>
+              <th>Satisfaisant</th>
+              <th>Partiellement Satisfaisant</th>
+              <th>Non satisfaisant</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Accueil Section -->
+            <tr>
+              <td>Qualité d'accueil à l'embauche</td>
+              <td><input type="radio" formControlName="accueilQualite" value="Très Satisfaisant" name="accueilQualite"></td>
+              <td><input type="radio" formControlName="accueilQualite" value="Satisfaisant" name="accueilQualite"></td>
+              <td><input type="radio" formControlName="accueilQualite" value="Partiellement Satisfaisant" name="accueilQualite"></td>
+              <td><input type="radio" formControlName="accueilQualite" value="Non satisfaisant" name="accueilQualite"></td>
+            </tr>
+            <tr>
+              <td>Quantité d'informations du livret d'accueil</td>
+              <td><input type="radio" formControlName="livretInfos" value="Très Satisfaisant" name="livretInfos"></td>
+              <td><input type="radio" formControlName="livretInfos" value="Satisfaisant" name="livretInfos"></td>
+              <td><input type="radio" formControlName="livretInfos" value="Partiellement Satisfaisant" name="livretInfos"></td>
+              <td><input type="radio" formControlName="livretInfos" value="Non satisfaisant" name="livretInfos"></td>
+            </tr>
+            <tr>
+              <td>Qualité d'accueil au sein de votre service</td>
+              <td><input type="radio" formControlName="serviceAccueil" value="Très Satisfaisant" name="serviceAccueil"></td>
+              <td><input type="radio" formControlName="serviceAccueil" value="Satisfaisant" name="serviceAccueil"></td>
+              <td><input type="radio" formControlName="serviceAccueil" value="Partiellement Satisfaisant" name="serviceAccueil"></td>
+              <td><input type="radio" formControlName="serviceAccueil" value="Non satisfaisant" name="serviceAccueil"></td>
+            </tr>
+            <tr>
+              <td>Autres commentaires</td>
+              <td colspan="4"><textarea formControlName="accueilCommentaires" rows="2" name="accueilCommentaires"></textarea></td>
+            </tr>
+    
+            <!-- Intégration Générique Section -->
+            <tr>
+              <td colspan="5" class="section-header">Intégration Générique</td>
+            </tr>
+            <tr>
+              <td>Qualité des formations transmises</td>
+              <td><input type="radio" formControlName="generiqueFormationQualite" value="Très Satisfaisant" name="generiqueFormationQualite"></td>
+              <td><input type="radio" formControlName="generiqueFormationQualite" value="Satisfaisant" name="generiqueFormationQualite"></td>
+              <td><input type="radio" formControlName="generiqueFormationQualite" value="Partiellement Satisfaisant" name="generiqueFormationQualite"></td>
+              <td><input type="radio" formControlName="generiqueFormationQualite" value="Non satisfaisant" name="generiqueFormationQualite"></td>
+            </tr>
+            <tr>
+              <td>Qualité d'encadrement</td>
+              <td><input type="radio" formControlName="generiqueEncadrement" value="Très Satisfaisant" name="generiqueEncadrement"></td>
+              <td><input type="radio" formControlName="generiqueEncadrement" value="Satisfaisant" name="generiqueEncadrement"></td>
+              <td><input type="radio" formControlName="generiqueEncadrement" value="Partiellement Satisfaisant" name="generiqueEncadrement"></td>
+              <td><input type="radio" formControlName="generiqueEncadrement" value="Non satisfaisant" name="generiqueEncadrement"></td>
+            </tr>
+            <tr>
+              <td>Les conditions de l'intégration générique par rapport à vos attentes</td>
+              <td><input type="radio" formControlName="generiqueConditions" value="Très Satisfaisant" name="generiqueConditions"></td>
+              <td><input type="radio" formControlName="generiqueConditions" value="Satisfaisant" name="generiqueConditions"></td>
+              <td><input type="radio" formControlName="generiqueConditions" value="Partiellement Satisfaisant" name="generiqueConditions"></td>
+              <td><input type="radio" formControlName="generiqueConditions" value="Non satisfaisant" name="generiqueConditions"></td>
+            </tr>
+            <tr>
+              <td>Autres commentaires</td>
+              <td colspan="4"><textarea formControlName="generiqueCommentaires" rows="2" name="generiqueCommentaires"></textarea></td>
+            </tr>
+    
+            <!-- Intégration Spécifique Au Poste Section -->
+            <tr>
+              <td colspan="5" class="section-header">Intégration Spécifique Au Poste</td>
+            </tr>
+            <tr>
+              <td>Qualité des formations transmises</td>
+              <td><input type="radio" formControlName="specifiqueFormationQualite" value="Très Satisfaisant" name="specifiqueFormationQualite"></td>
+              <td><input type="radio" formControlName="specifiqueFormationQualite" value="Satisfaisant" name="specifiqueFormationQualite"></td>
+              <td><input type="radio" formControlName="specifiqueFormationQualite" value="Partiellement Satisfaisant" name="specifiqueFormationQualite"></td>
+              <td><input type="radio" formControlName="specifiqueFormationQualite" value="Non satisfaisant" name="specifiqueFormationQualite"></td>
+            </tr>
+            <tr>
+              <td>Qualité de l'encadrement</td>
+              <td><input type="radio" formControlName="specifiqueEncadrement" value="Très Satisfaisant" name="specifiqueEncadrement"></td>
+              <td><input type="radio" formControlName="specifiqueEncadrement" value="Satisfaisant" name="specifiqueEncadrement"></td>
+              <td><input type="radio" formControlName="specifiqueEncadrement" value="Partiellement Satisfaisant" name="specifiqueEncadrement"></td>
+              <td><input type="radio" formControlName="specifiqueEncadrement" value="Non satisfaisant" name="specifiqueEncadrement"></td>
+            </tr>
+            <tr>
+              <td>Les conditions de l'intégration spécifique par rapport à vos attentes</td>
+              <td><input type="radio" formControlName="specifiqueConditions" value="Très Satisfaisant" name="specifiqueConditions"></td>
+              <td><input type="radio" formControlName="specifiqueConditions" value="Satisfaisant" name="specifiqueConditions"></td>
+              <td><input type="radio" formControlName="specifiqueConditions" value="Partiellement Satisfaisant" name="specifiqueConditions"></td>
+              <td><input type="radio" formControlName="specifiqueConditions" value="Non satisfaisant" name="specifiqueConditions"></td>
+            </tr>
+            <tr>
+              <td>Les objectifs de poste sont-ils clairs ?</td>
+              <td><input type="radio" formControlName="objectifsClairs" value="Très Satisfaisant" name="objectifsClairs"></td>
+              <td><input type="radio" formControlName="objectifsClairs" value="Satisfaisant" name="objectifsClairs"></td>
+              <td><input type="radio" formControlName="objectifsClairs" value="Partiellement Satisfaisant" name="objectifsClairs"></td>
+              <td><input type="radio" formControlName="objectifsClairs" value="Non satisfaisant" name="objectifsClairs"></td>
+            </tr>
+            <tr>
+              <td>Le périmètre de votre poste est-il conforme à vos attentes ?</td>
+              <td><input type="radio" formControlName="perimetrePoste" value="Très Satisfaisant" name="perimetrePoste"></td>
+              <td><input type="radio" formControlName="perimetrePoste" value="Satisfaisant" name="perimetrePoste"></td>
+              <td><input type="radio" formControlName="perimetrePoste" value="Partiellement Satisfaisant" name="perimetrePoste"></td>
+              <td><input type="radio" formControlName="perimetrePoste" value="Non satisfaisant" name="perimetrePoste"></td>
+            </tr>
+            <tr>
+              <td>Autres commentaires</td>
+              <td colspan="4"><textarea formControlName="specifiqueCommentaires" rows="2" name="specifiqueCommentaires"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+    
+        <div>
+          <input 
+            type="submit" 
+            value="Submit Form" 
+            class="submit-button" 
+            
+          >
+        </div>
+      </div>
+    </form>
+    
+  </ng-container>
+
+  <!-- Success message template -->
+  <ng-template #submittedMessage>
+    <div class="success-message">
+      Thank you! Your evaluation has been submitted successfully.
+    </div>
+  </ng-template>
+</div>
+
+
+
+
+

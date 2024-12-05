@@ -1,0 +1,102 @@
+<div class="container">
+
+    <button (click)="openPopup('manage')">Manage Function Sheets</button>
+  
+    <app-popup [title]="'Manage Function Sheets'" [showPopup]="showManagePopup" (closePopup)="closePopup('manage')" >
+     
+      <button (click)="openPopup('add')">Add Function Sheet</button>
+  
+      <app-popup [title]="'Add Function Sheet'" [showPopup]="showAddPopup" (closePopup)="closePopup('add')">
+        <div class="modal-body">
+          <!-- Department Form -->
+          <form [formGroup]="sheetForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                  <label for="FileData">Upload File:</label>
+                  <input  type="file"  id="FileData" formControlName="FileData" class="form-control" (change)="onFileChange($event)" #fileInput>
+                </div>
+              <div class="form-group">
+                  <label for="mresp">Responsible Registraion Number:</label>
+                  <input type="number" id="mresp" formControlName="mresp" class="form-control" required>
+              </div>
+          </form>
+        </div>
+    
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closePopup('add')">Close</button>
+          <button type="submit" class="btn btn-primary" [disabled]="sheetForm.invalid" (click)="onSubmit()">Save</button>
+        </div>
+      </app-popup>
+     
+
+    
+      <button (click)="openPopup('edit')">Edit Function Sheet</button>
+    <app-popup [title]="'Edit Function Sheet'" [showPopup]="showEditPopup" (closePopup)="closePopup('edit')">
+      <div class="modal-body">
+        <!-- Department Form -->
+        <form [formGroup]="editForm" (ngSubmit)="onEdit()">
+          <div class="form-group">
+            <label for="IdFf">Id:</label>
+            <input type="number" id="IdFf" formControlName="IdFf" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="FileData">Upload File:</label>
+            <input  type="file"  id="FileData" formControlName="FileData" class="form-control" (change)="onFileChange($event)" #fileInput>
+          </div>
+          <div class="form-group">
+            <label for="mresp">Responsible Registraion Number:</label>
+            <input type="number" id="mresp" formControlName="mresp" class="form-control" required>
+          </div>
+        </form>
+      </div>
+  
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closePopup('edit')">Close</button>
+        <button type="submit" class="btn btn-primary" [disabled]="editForm.invalid" (click)="onEdit()">Save</button>
+      </div>
+    </app-popup>
+    
+    
+    
+      <button (click)="openPopup('delete')">Delete</button>
+      <app-popup [title]="'Delete Fiche Fonction'" [showPopup]="showDeletePopup" (closePopup)="closePopup('delete')">
+        <div class="modal-body">
+          <!-- Department Form -->
+          <form [formGroup]="deleteForm" (ngSubmit)="onDelete()">
+            <div class="form-group">
+                <label for="IdFf">Id:</label>
+                <input type="number" id="IdFf" formControlName="IdFf" class="form-control" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closePopup('delete')">Close</button>
+          <button type="submit" class="btn btn-primary" [disabled]="deleteForm.invalid" (click)="onDelete()">Save</button>
+        </div>
+      </app-popup>
+
+
+
+    </app-popup>
+  
+        <table datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger" >
+          <thead>
+            <tr>
+              <th>ID Function Sheet</th>
+              <th>Name Function Sheet</th>
+              <th>Content Type</th>
+              <th>Reponsible Registraion Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of sheetlist ; track $index) {
+              <tr>
+                <td>{{item.idFf}}</td>
+                <td>{{item.nameFf}}</td>
+                <td>{{item.contentType}}</td>
+                <td>{{item.mresp}}</td>
+              </tr>
+            }
+          </tbody>     
+      </table>
+  </div>
+    

@@ -1,0 +1,91 @@
+<div class="container">
+
+    <button (click)="openPopup('manage')">Manage Roles</button>
+  
+    <app-popup [title]="'Manage Roles'" [showPopup]="showManagePopup" (closePopup)="closePopup('manage')" >
+      <button (click)="openPopup('add')">Add Role</button>
+  
+    <app-popup [title]="'Add Role'" [showPopup]="showAddPopup" (closePopup)="closePopup('add')">
+   
+  
+      <div class="modal-body">
+        <!-- Department Form -->
+        <form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="IdR">Id:</label>
+            <input type="number" id="IdR" formControlName="IdR" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="DescR">Role Description:</label>
+            <input type="text" id="DescR" formControlName="DescR" class="form-control" required>
+          </div>
+        </form>
+      </div>
+  
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closePopup('add')">Close</button>
+        <button type="submit" class="btn btn-primary" [disabled]="roleForm.invalid" (click)="onSubmit()">Save</button>
+      </div>
+    </app-popup>
+  
+    <div>
+      <button (click)="openPopup('edit')">Edit</button>
+    <app-popup [title]="'Edit Role'" [showPopup]="showEditPopup" (closePopup)="closePopup('edit')">
+      <div class="modal-body">
+        <!-- Department Form -->
+        <form [formGroup]="editForm" (ngSubmit)="onEdit()">
+            <div class="form-group">
+                <label for="IdR">Id:</label>
+                <input type="number" id="IdR" formControlName="IdR" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="DescR">Role Description:</label>
+                <input type="text" id="DescR" formControlName="DescR" class="form-control" required>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closePopup('edit')">Close</button>
+        <button type="submit" class="btn btn-primary" [disabled]="editForm.invalid" (click)="onEdit()">Save</button>
+      </div>
+    </app-popup>
+  
+    </div>
+    <div>
+      <button (click)="openPopup('delete')">Delete</button>
+      <app-popup [title]="'Delete Role'" [showPopup]="showDeletePopup" (closePopup)="closePopup('delete')">
+        <div class="modal-body">
+          <!-- Department Form -->
+          <form [formGroup]="deleteForm" (ngSubmit)="onDelete()">
+            <div class="form-group">
+                <label for="IdR">Id:</label>
+                <input type="number" id="IdR" formControlName="IdR" class="form-control" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closePopup('delete')">Close</button>
+          <button type="submit" class="btn btn-primary" [disabled]="deleteForm.invalid" (click)="onDelete()">Save</button>
+        </div>
+      </app-popup>
+    </div>
+    </app-popup>
+  
+        <table datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger" >
+          <thead>
+            <tr>
+              <th>ID Role</th>
+              <th>Role Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of rolelist ; track $index) {
+              <tr>
+                <td>{{item.idR}}</td>
+                <td>{{item.descR}}</td>
+              </tr>
+            }
+          </tbody>     
+      </table>
+  </div>
+    

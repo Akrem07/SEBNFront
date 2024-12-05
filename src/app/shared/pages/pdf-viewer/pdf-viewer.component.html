@@ -1,0 +1,53 @@
+<!-- <object data="../../../assets/a/ff.pdf" type="application/pdf" width="100%" height="500px">
+<p>Unable to display PDF file. <a href="/uploads/media/default/0001/01/540cb75550adf33f281f29132dddd14fded85bfc.pdf">Download</a> instead.</p>
+</object>
+
+<div>
+<p>Uploadfile</p>
+</div>
+<div></div> -->
+
+
+<!-- 
+<div>
+    <input type="number" #pdfId placeholder="Enter PDF ID">
+    <button (click)="fetchPdf(+pdfId.value)">Fetch PDF</button>
+</div>
+  
+<div *ngIf="pdfUrl">
+    <object [data]="pdfUrl" type="application/pdf" width="100%" height="500px">
+      <p>Your browser does not support PDFs. <a [href]="pdfUrl" target="_blank" download="{{ pdfFileName }}">Download the PDF</a>...</p>
+    </object>
+</div> -->
+
+
+<div *ngIf="pdfUrl">
+  <object [data]="pdfUrl" type="application/pdf" width="100%" height="500px">
+    <p>Your browser does not support viewing PDFs directly. 
+      <a [href]="pdfUrl" target="_blank" download="{{ pdfFileName }}">Download the PDF</a>
+    </p>
+  </object>
+</div>
+
+<div *ngIf="pdfUrl; else showDownloadLink">
+  <object [data]="pdfUrl" type="application/pdf" width="100%" height="500px">
+    <p>Your browser does not support viewing PDFs directly.
+      <a [href]="pdfUrl" target="_blank" download="{{ pdfFileName }}">Download the PDF</a>
+    </p>
+  </object>
+</div>
+
+<ng-template #showDownloadLink>
+  <p>Unable to view the PDF in your browser. 
+    <a [href]="pdfUrl" target="_blank" download="{{ pdfFileName }}">Click here to download the PDF</a>
+  </p>
+</ng-template>
+
+
+
+<!-- <object class="pdf" 
+            data=
+"https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210101201653/PDF.pdf"
+            width="800"
+            height="500">
+    </object> -->

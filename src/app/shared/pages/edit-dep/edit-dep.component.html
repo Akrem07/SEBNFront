@@ -1,0 +1,19 @@
+<h3 class="title">Edit Department</h3>
+<form [formGroup]="editForm" (ngSubmit)="saveDep()" class="form">
+  <label>
+    <span>Department Id</span>
+    <input formControlName="IdDep" class="input" placeholder="Department Id" required />
+  </label>
+
+  <label>
+    <span>Department Name</span>
+    <input formControlName="NameDep" class="input" placeholder="Department Name" required />
+  </label>
+
+  <label>
+    <span>Position</span>
+    <input formControlName="Post" class="input" placeholder="Position" required />
+  </label>
+
+  <button type="submit" class="submit">Save</button>
+</form>

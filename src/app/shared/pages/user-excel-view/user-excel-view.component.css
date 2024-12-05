@@ -1,0 +1,114 @@
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    animation: slideIn 1s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    transition: background-color 0.3s ease;
+  }
+  
+  thead {
+    background-color: #007AFF;
+    color: white;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tbody tr:nth-child(odd) {
+    background-color: #e6f7ff;
+  }
+  
+  tbody tr:hover {
+    background-color: #d1e7dd;
+  }
+  
+  tbody td:hover {
+    background-color: #d0e1ff;
+  }
+  
+  th:first-child, td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  th:last-child, td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  tbody tr {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+  }
+  
+  tbody tr:hover {
+    transform: scale(1.03);
+    background-color: #cce7ff;
+  }
+  
+  button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button {
+    background-color: #ff4d4d;
+    color: white;
+  }
+  
+  button:hover {
+    background-color: #ff1a1a;
+    transform: scale(1.05);
+  }
+  
+  button.approved {
+    background-color: #28a745;
+  }
+  
+  button.approved:hover {
+    background-color: #218838;
+  }
+  
+  @keyframes approve {
+    0% {
+      transform: scale(1);
+      background-color: #ff4d4d;
+    }
+    50% {
+      transform: scale(1.1);
+      background-color: #ffd700;
+    }
+    100% {
+      transform: scale(1);
+      background-color: #28a745;
+    }
+  }
+  
+  button.approved {
+    animation: approve 0.5s ease-in-out;
+  }
+  

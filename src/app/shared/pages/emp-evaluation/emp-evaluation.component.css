@@ -1,0 +1,77 @@
+.evaluation-form-container {
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    background-color: #f0f4f7;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #2c3e50;
+  }
+  
+  .evaluation-table {
+    width: 100%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .evaluation-table th,
+  .evaluation-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .evaluation-table th {
+    background-color: #3b2d9c;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .evaluation-table td {
+    font-size: 14px;
+    color: #34495e;
+  }
+  
+  .section-header {
+    background-color: #f7f9fc;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 10px;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    resize: none;
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3b2d9c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+  
+  .submit-button:hover {
+    background-color: #483d93;
+  }
+  

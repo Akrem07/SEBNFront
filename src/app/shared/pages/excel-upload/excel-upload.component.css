@@ -1,0 +1,19 @@
+.upload-container {
+    margin: 20px;
+  }
+  .upload-container h2 {
+    margin-bottom: 10px;
+  }
+  .upload-container input {
+    margin-bottom: 10px;
+  }
+  .upload-container button {
+    margin-right: 10px;
+  }
+  .success-message {
+    color: green;
+  }
+  .error-message {
+    color: red;
+  }
+  

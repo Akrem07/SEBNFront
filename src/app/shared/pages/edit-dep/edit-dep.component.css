@@ -1,0 +1,27 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form label {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .submit {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: royalblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .submit:hover {
+    background-color: darkblue;
+  }
+  

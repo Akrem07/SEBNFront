@@ -1,0 +1,37 @@
+<div class="container">
+    <div>
+      <h2>Data Listing</h2>
+      <select [(ngModel)]="selectedTable" class="form-select mb-3">
+        <option value="users">Users</option>
+        <option value="departments">Departments</option>
+        <option value="roles">Roles</option>
+        <option value="fiches">Fiche Fonctions</option>
+        <option value="plans">Integration Plans</option>
+        <
+      </select>
+    </div>
+
+    <div *ngIf="selectedTable === 'users'">
+        <h3>Users List</h3>
+        <app-listing></app-listing>
+    </div>
+    <div *ngIf="selectedTable === 'departments'">
+        <h3>Departments List</h3>
+        <app-listing-department></app-listing-department>
+    </div>
+
+    <div *ngIf="selectedTable === 'roles'">
+        <h3>Roles List</h3>
+        <app-listing-roles></app-listing-roles>
+    </div>
+
+    <div *ngIf="selectedTable === 'fiches'">
+        <h3>Function Sheet List</h3>
+        <app-listing-sheets></app-listing-sheets>
+    </div>
+
+    <div *ngIf="selectedTable === 'plans'">
+        <h3>Integration Plans List</h3>
+        <app-listing-plans></app-listing-plans>
+    </div>
+</div>

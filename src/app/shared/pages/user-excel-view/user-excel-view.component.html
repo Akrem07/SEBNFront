@@ -1,0 +1,29 @@
+<div>
+  <label for="fileInput">Choose a file:</label>
+  <input id="fileInput" type="file" (change)="onFileChange($event)" accept=".xlsx, .xls" />
+  <button type="button" (click)="onUpload()">Upload</button>
+</div>
+
+<p>Excel data works!</p>
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let header of data[0]">{{ header }}</th>
+      <th>Approval</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data.slice(1); let i = index">
+      <td *ngFor="let cell of row">{{ cell }}</td>
+      <td>
+        <button type="button" [ngClass]="{'approved': approvalStatus[i]}" (click)="approveRow(i)">
+          {{ approvalStatus[i] ? 'Approved' : 'Approve' }}
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<form (ngSubmit)="onSubmit()">
+  <button type="submit">Submit</button>
+</form>

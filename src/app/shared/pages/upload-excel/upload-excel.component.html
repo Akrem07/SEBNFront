@@ -1,0 +1,27 @@
+<div class="upload-container">
+    <form [formGroup]="uploadForm" (ngSubmit)="uploadFile()">
+      <div class="form-group">
+        <label for="NameIp">Name:</label>
+        <input type="text" id="NameIp" formControlName="NameIp" class="form-control" />
+      </div>
+      
+      <div class="form-group">
+        <label for="IdIp">ID:</label>
+        <input type="number" id="IdIp" formControlName="IdIp" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label for="RowData">Upload Excel File:</label>
+        <input type="file" id="RowData" (change)="onFileChange($event)" class="form-control" formControlName="RowData" />
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="uploadForm.invalid">Upload</button>
+    </form>
+  
+    <div *ngIf="progress > 0">
+      <div>Progress: {{progress}}%</div>
+    </div>
+  
+    <div *ngIf="message">{{message}}</div>
+  </div>
+  

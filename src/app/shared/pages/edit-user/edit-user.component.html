@@ -1,0 +1,77 @@
+<h3 class="title">Edit User</h3>
+<form (ngSubmit)="saveUser()" class="form">
+  <label>
+    <input id="matricule" [(ngModel)]="user.mat" name="matricule" class="input" placeholder=" " required />
+    <span>Matricule</span>
+  </label>
+
+  <label>
+    <input id="firstName" [(ngModel)]="user.firstName" name="firstName" class="input" placeholder=" " required />
+    <span>First Name</span>
+  </label>
+
+  <label>
+    <input id="lastName" [(ngModel)]="user.lastName" name="lastName" class="input" placeholder=" " required />
+    <span>Last Name</span>
+  </label>
+
+  <label>
+    <input id="matResp" [(ngModel)]="user.matResp" name="matResp" class="input" placeholder=" " />
+    <span>Responsable</span>
+  </label>
+
+  <label>
+    <input id="idDep" [(ngModel)]="user.idDep" name="idDep" class="input" placeholder=" " />
+    <span>Post ID</span>
+  </label>
+
+  <label>
+    <input id="idR" [(ngModel)]="user.idR" name="idR" class="input" placeholder=" " />
+    <span>Role ID</span>
+  </label>
+
+  <button type="submit" class="submit">Save</button>
+</form>
+
+<button (click)="openPopup('attributePlan')">Attribute IP</button>
+<app-popup [title]="'Attribute Integration plan'" [showPopup]="showAttributePlanPopup" (closePopup)="closePopup('attributePlan')">
+    <div class="modal-body">
+        <!-- Department Form -->
+        <form [formGroup]="attributeplanForm" (ngSubmit)="onAttributePlan()">
+        <div class="form-group">
+            <label for="mat">mat:</label>
+            <input type="number" id="mat" formControlName="mat" class="form-control" [(ngModel)]="user.mat"  required>
+        </div>
+        <div class="form-group">
+            <label for="idIp">IdIp:</label>
+            <input type="number" id="idIp" formControlName="idIp" class="form-control" required>
+        </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closePopup('attributePlan')">Close</button>
+        <button type="submit" class="btn btn-primary" [disabled]="attributeplanForm.invalid" (click)="onAttributePlan()">Save</button>
+    </div>
+</app-popup>
+
+<button (click)="openPopup('attributeFiche')">Attribute FF</button>
+<app-popup [title]="'Attribute Function Sheet'" [showPopup]="showAttributeFichePopup" (closePopup)="closePopup('attributeFiche')">
+    <div class="modal-body">
+        <!-- Department Form -->
+        <form [formGroup]="attributeficheForm" (ngSubmit)="onAttributeFiche()">
+        <div class="form-group">
+            <label for="mat">mat:</label>
+            <input type="number" id="mat" formControlName="mat" class="form-control"  [(ngModel)]="user.mat"  required>
+        </div>
+        <div class="form-group">
+            <label for="idFf">IdFf:</label>
+            <input type="number" id="idFf" formControlName="idFf" class="form-control" required>
+        </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closePopup('attributeFiche')">Close</button>
+        <button type="submit" class="btn btn-primary" [disabled]="attributeficheForm.invalid" (click)="onAttributeFiche()">Save</button>
+    </div>
+</app-popup>
+

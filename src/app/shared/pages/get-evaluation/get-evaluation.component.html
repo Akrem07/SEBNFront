@@ -1,0 +1,116 @@
+<div>
+    <div class="img-container">
+      <img src="../assets/SEBNAL1.jpg" alt="" class="under-navbar" />
+      <div class="page_title">FeedBack</div>
+    </div>
+    <div class="card-conatiner">
+      
+        <div class="container">
+            <div>
+              <h2>Data Listing</h2>
+              <select [(ngModel)]="selectedTable" class="form-select mb-3">
+                <option value="EmpEvas">Employee Evaluations</option>
+                <option value="RespEvas">Responsable Evaluations</option>
+              </select>
+            </div>
+        
+
+            @if (selectedTable === 'EmpEvas') {<div>
+                <h3>Employee Evaluation List</h3>
+                <table datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger">
+                <thead>
+                    <tr>
+                        <th>idEva</th>
+                        <th>mat</th>
+                        <th>qual</th>
+                        <th>livr</th>
+                        <th>S.Accueil</th>
+                        <th>A.Comment</th>
+                        <th>GFQ</th>
+                        <th>G.Encadrement</th>
+                        <th>G.Conditions</th>
+                        <th>G.Comment</th>
+                        <th>SFQ</th>
+                        <th>S.Encadrement</th>
+                        <th>S.Conditions</th>
+                        <th>ObjClairs</th>
+                        <th>perimetrePoste</th>
+                        <th>S.Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of EmpEvalist">
+                        <td>{{item.idEva}}</td>
+                        <td>{{item.mat}}</td>
+                        <td>{{item.accueilQualite}}</td>
+                        <td>{{item.livretInfos}}</td>
+                        <td>{{item.serviceAccueil}}</td>
+                        <td>{{item.accueilCommentaires}}</td>
+                        <td>{{item.generiqueFormationQualite}}</td>
+                        <td>{{item.generiqueEncadrement}}</td>
+                        <td>{{item.generiqueConditions}}</td>
+                        <td>{{item.generiqueCommentaires}}</td>
+                        <td>{{item.specifiqueFormationQualite}}</td>
+                        <td>{{item.specifiqueEncadrement}}</td>
+                        <td>{{item.specifiqueConditions}}</td>
+                        <td>{{item.objectifsClairs}}</td>
+                        <td>{{item.perimetrePoste}}</td>
+                        <td>{{item.specifiqueCommentaires}}</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>}
+            
+
+            @if (selectedTable === 'RespEvas') {
+
+                <div>
+                    <h3>Department List</h3>
+                    <table datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger">
+                    <thead>
+                        <tr>
+                        <th>idReva</th>
+                        <th>mat</th>
+                        <th>Forces</th>
+                        <th>Aspects</th>
+                        <th>Adaptation</th>
+                        <th>Autonomy</th>
+                        <th>Quality</th>
+                        <th>Goals</th>
+                        <th>Others</th>
+                        <th>SpecifiqueCommentaire1</th>
+                        <th>Evaluation1</th>
+                        <th>ProbationRéussie</th>
+                        <th>Evaluation</th>
+                        <th>ProbationNonRéussie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of RespEvalist; track item) {
+                        <tr>
+                            <td>{{item.idReva}}</td>
+                            <td>{{item.mat}}</td>
+                            <td>{{item.forces}}</td>
+                            <td>{{item.aspects}}</td>
+                            <td>{{item.adaptation}}</td>
+                            <td>{{item.autonomy}}</td>
+                            <td>{{item.quality}}</td>
+                            <td>{{item.goals}}</td>
+                            <td>{{item.others}}</td>
+                            <td>{{item.specifiqueCommentaire1}}</td>
+                            <td>{{item.evaluation1}}</td>
+                            <td>{{item.probationReussie}}</td>
+                            <td>{{item.evaluation}}</td>
+                            <td>{{item.probationNonReussie}}</td>
+                        </tr>
+                        }
+                    </tbody>
+                    </table>
+                </div>
+            }
+    </div>
+</div>
+
+
+
+

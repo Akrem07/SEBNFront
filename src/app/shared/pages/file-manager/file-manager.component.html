@@ -1,0 +1,48 @@
+<form (ngSubmit)="uploadFile()">
+    <input type="file" (change)="onFileChange($event)" />
+    <input type="number" [(ngModel)]="idIp" name="idIp" placeholder="ID" required />
+    <input type="text" [(ngModel)]="nameIp" name="nameIp" placeholder="Name" required />
+    <button type="submit">Upload File</button>
+</form>
+  
+  <form (ngSubmit)="getFile()">
+    <input type="number" [(ngModel)]="idIp" name="idIp" placeholder="File ID" required />
+    <button type="submit">Get File</button>
+  </form>
+  
+  <div *ngIf="fileUrl">
+    <iframe [src]="fileUrl | safe:'resourceUrl'" width="100%" height="600px"></iframe>
+  </div>
+
+
+  <div>
+    <button (click)="getFile()">Load File</button>
+  </div>
+  
+  <br />
+  <form (ngSubmit)="onSubmit()" *ngIf="data.length > 0">
+    <table border="1">
+      <thead>
+        <tr>
+          <th *ngFor="let header of data[0]">{{ header }}</th>
+          <th *ngIf="data[0].length > 1">Approval</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of data.slice(1); let i = index">
+          <td *ngFor="let cell of row">{{ cell }}</td>
+          <td *ngIf="row.length > 1">
+            <button
+              type="button"
+              [ngClass]="{'approved': approvalStatus[i]}"
+              (click)="approveRow(i)">
+              {{ approvalStatus[i] ? 'Approved' : 'Approve' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit">Submit</button>
+  </form>
+  
+  

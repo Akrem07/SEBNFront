@@ -1,0 +1,73 @@
+@import "src/assets/css/jquery.dataTables.min.css";
+
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #D1D9FE;
+}
+.icon{
+    fill: currentColor;
+  
+}
+html, body { height: 100%; }
+body {  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+    .mat-mdc-snack-bar-container {
+        &.success-snackbar {
+          
+          --mdc-snackbar-container-color: #e3f7e1d8;
+          --mat-mdc-snack-bar-button-color: rgb(255, 255, 255);
+          
+          /* --mdc-snackbar-supporting-text-color: blue; */ /* Change the text color */
+          border-radius: 8px !important;
+        }
+        &.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+          
+            border-radius: 20px !important;
+            width: 650px !important;
+            height: 80px !important;
+           
+          }
+          &.mat-mdc-snack-bar-container.success-snackbar .mat-mdc-button {
+            color: rgb(98, 94, 94) !important; /* Change to your preferred color */
+            padding: 2px !important;
+            background-color: rgba(147, 139, 139, 0.1) !important;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+
+            
+            
+          }
+        
+      }
+   
+      .custom-dialog-container {
+        max-width: 800px !important; /* or any desired width */
+        width: 100% !important; /* To ensure it uses the max-width */
+        height: 75vh !important; /* Adjust height as needed */
+        background-color: rgba(193, 193, 192, 0) !important; /* Change to your preferred color */
+        color: transparent !important; /* Change to your preferred color */
+        
+      
+        
+      }
+::ng-deep.mat-mdc-dialog-component-host{
+  height: 80% !important;
+}
+
+.dt-input
+   {
+  border-radius: 5px !important;
+    border: 1px solid #349DA7 !important  ;
+    margin-right: 5px !important;
+    margin-left: 10px !important;
+   }
+   .dropdown-list[_ngcontent-ng-c692748064]{
+    width: 200px !important;  
+  }
+
+  .dt-column-order, ::before ,::after{
+    padding: 1px !important;
+    
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

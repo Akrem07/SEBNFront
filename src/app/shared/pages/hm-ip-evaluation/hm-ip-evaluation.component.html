@@ -1,0 +1,212 @@
+
+
+
+
+
+<div class="evaluation-form-container">
+  <!-- Conditionally display the form or the success message -->
+  <ng-container *ngIf="!formSubmitted; else submittedMessage">
+
+    <form [formGroup]="evaluationForm" #signupForm="ngForm" (ngSubmit)="submit(signupForm)">
+     <!-- Employee Strengths Section -->
+  <div class="section">
+    <div class="header">Forces de l'employé</div>
+    <textarea formControlName="forces" rows="2" name="forces"></textarea>
+  </div>
+
+  <!-- Areas for Improvement Section -->
+  <div class="section">
+    <div class="header">Aspects à améliorer</div>
+    <textarea formControlName="aspects" rows="2" name="aspects"></textarea>
+  </div>
+
+  <!-- Integration Objectives Achievement Section -->
+  <div class="section objectives">
+    <div class="header">Atteinte des objectifs d'intégration</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Très Satisfaisant</th>
+          <th>Satisfaisant</th>
+          <th>Partiellement Satisfaisant</th>
+          <th>Non satisfaisant</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Capacité d'adaptation</td>
+          <td><input type="radio" name="adaptation" value="Très Satisfaisant" formControlName="adaptation"></td>
+          <td><input type="radio" name="adaptation" value="Satisfaisant" formControlName="adaptation"></td>
+          <td><input type="radio" name="adaptation" value="Partiellement Satisfaisant" formControlName="adaptation"></td>
+          <td><input type="radio" name="adaptation" value="Non satisfaisant" formControlName="adaptation"></td>
+        </tr>
+        <tr>
+          <td>Autonomie et initiative</td>
+          <td><input type="radio" name="autonomy" value="Très Satisfaisant" formControlName="autonomy"></td>
+          <td><input type="radio" name="autonomy" value="Satisfaisant" formControlName="autonomy"></td>
+          <td><input type="radio" name="autonomy" value="Partiellement Satisfaisant" formControlName="autonomy"></td>
+          <td><input type="radio" name="autonomy" value="Non satisfaisant" formControlName="autonomy"></td>
+          
+        </tr>
+        <tr>
+          <td>Qualité et quantité du travail</td>
+          <td><input type="radio" name="quality" value="Très Satisfaisant" formControlName="quality"></td>
+          <td><input type="radio" name="quality" value="Satisfaisant" formControlName="quality"></td>
+          <td><input type="radio" name="quality" value="Partiellement Satisfaisant" formControlName="quality"></td>
+          <td><input type="radio" name="quality" value="Non satisfaisant" formControlName="quality"></td>
+        </tr>
+        <tr>
+          <td>Atteinte des objectifs</td>
+          <td><input type="radio" name="goals" value="Très Satisfaisant" formControlName="goals"></td>
+          <td><input type="radio" name="goals" value="Satisfaisant" formControlName="goals"></td>
+          <td><input type="radio" name="goals" value="Partiellement Satisfaisant" formControlName="goals"></td>
+          <td><input type="radio" name="goals" value="Non satisfaisant" formControlName="goals"></td>
+        </tr>
+        <tr>
+          <td>Autres</td>
+          <td><input type="radio" name="others" value="Très Satisfaisant" formControlName="others"></td>
+          <td><input type="radio" name="others" value="Satisfaisant" formControlName="others"></td>
+          <td><input type="radio" name="others" value="Partiellement Satisfaisant" formControlName="others"></td>
+          <td><input type="radio" name="others" value="Non satisfaisant" formControlName="others"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Additional Comments Section -->
+  <div class="section comments">
+    <div class="header">Autres commentaires</div>
+    <textarea formControlName="specifiqueCommentaire1" rows="3" name="specifiqueCommentaire1"></textarea>
+  </div>
+
+  <!-- General Evaluation Section -->
+  <div class="section evaluation">
+    <div class="header">Evaluation Générale</div>
+    <div class="evaluation-choice">
+      <label>
+        <input type="radio" name="evaluation1" value="success" formControlName="evaluation1">
+        <span>Probation réussie</span>
+        <textarea formControlName="probationReussie" rows="2" name="probationReussie"></textarea>
+      </label>
+      <label>
+        <input type="radio" name="evaluation" value="failure" formControlName="evaluation">
+        <span>Probation non réussie</span>
+        <textarea formControlName="probationNonReussie" rows="2" name="probationNonReussie"></textarea>
+      </label>
+    </div>
+  </div>
+  <div>
+    <input 
+      type="submit" 
+      value="Submit Form" 
+      class="submit-button" 
+      
+    >
+  </div>
+    </form>
+    
+  </ng-container>
+
+  <!-- Success message template -->
+  <ng-template #submittedMessage>
+    <div class="success-message">
+      Thank you! Your evaluation has been submitted successfully.
+    </div>
+  </ng-template>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="evaluation-form">
+
+    <div class="section">
+      <div class="header">Forces de l'employé</div>
+      <textarea rows="2"></textarea>
+    </div>
+  
+    <div class="section">
+      <div class="header">Aspects à améliorer</div>
+      <textarea rows="2"></textarea>
+    </div>
+  
+    <div class="section objectives">
+      <div class="header">Atteinte des objectifs d'intégration</div>
+      <table>
+        <tr>
+          <th>Description</th>
+          <th>Très Satisfaisant</th>
+          <th>Satisfaisant</th>
+          <th>Partiellement Satisfaisant</th>
+          <th>Non satisfaisant</th>
+        </tr>
+        <tr>
+          <td>Capacité d'adaptation</td>
+          <td><input type="radio" name="adaptation" value="Très Satisfaisant"></td>
+          <td><input type="radio" name="adaptation" value="Satisfaisant"></td>
+          <td><input type="radio" name="adaptation" value="Partiellement Satisfaisant"></td>
+          <td><input type="radio" name="adaptation" value="Non satisfaisant"></td>
+        </tr>
+        <tr>
+          <td>Autonomie et initiative</td>
+          <td><input type="radio" name="autonomy" value="Très Satisfaisant"></td>
+          <td><input type="radio" name="autonomy" value="Satisfaisant"></td>
+          <td><input type="radio" name="autonomy" value="Partiellement Satisfaisant"></td>
+          <td><input type="radio" name="autonomy" value="Non satisfaisant"></td>
+        </tr>
+        <tr>
+          <td>Qualité et quantité du travail</td>
+          <td><input type="radio" name="quality" value="Très Satisfaisant"></td>
+          <td><input type="radio" name="quality" value="Satisfaisant"></td>
+          <td><input type="radio" name="quality" value="Partiellement Satisfaisant"></td>
+          <td><input type="radio" name="quality" value="Non satisfaisant"></td>
+        </tr>
+        <tr>
+          <td>Atteinte des objectifs</td>
+          <td><input type="radio" name="goals" value="Très Satisfaisant"></td>
+          <td><input type="radio" name="goals" value="Satisfaisant"></td>
+          <td><input type="radio" name="goals" value="Partiellement Satisfaisant"></td>
+          <td><input type="radio" name="goals" value="Non satisfaisant"></td>
+        </tr>
+        <tr>
+          <td>Autres</td>
+          <td><input type="radio" name="others" value="Très Satisfaisant"></td>
+          <td><input type="radio" name="others" value="Satisfaisant"></td>
+          <td><input type="radio" name="others" value="Partiellement Satisfaisant"></td>
+          <td><input type="radio" name="others" value="Non satisfaisant"></td>
+        </tr>
+      </table>
+    </div>
+  
+    <div class="section comments">
+      <div class="header">Autres commentaires</div>
+      <textarea rows="3"></textarea>
+    </div>
+  
+    <div class="section evaluation">
+      <div class="header">Evaluation Générale</div>
+      <div class="evaluation-choice">
+        <label>
+          <input type="radio" name="evaluation" value="success">
+          <span>Probation réussie</span>
+          <textarea rows="2"></textarea>
+        </label>
+        <label>
+          <input type="radio" name="evaluation" value="failure">
+          <span>Probation non réussie</span>
+          <textarea rows="2"></textarea>
+        </label>
+      </div>
+    </div>
+  
+  
+    <button class="submit-button" (click)="submitEvaluation()">Soumettre l'évaluation</button>
+  </div>
+   -->

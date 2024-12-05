@@ -1,0 +1,42 @@
+<!-- <div>
+  <button (click)="getFile()">Load File</button>
+</div> -->
+
+
+
+<!-- Loading state -->
+<div *ngIf="loading" class="loading-message">Loading file...</div>
+
+<!-- Error state -->
+<div *ngIf="error" class="error-message">{{ error }}</div>
+
+<!-- Form and Table -->
+<form (ngSubmit)="onSubmit()" *ngIf="data.length > 0">
+  <table border="1">
+    <thead>
+      <tr>
+        <th *ngFor="let header of data[0]">{{ header }}</th>
+        <th *ngIf="data[0].length > 1">Approval</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data.slice(1); let i = index">
+        <td *ngFor="let cell of row">{{ cell }}</td>
+        <td *ngIf="row.length > 1 && i >= 2">
+          <button
+            type="button"
+            [ngClass]="{'approved': approvalStatus[i]}"
+            (click)="approveRow(i)">
+            {{ approvalStatus[i] ? 'Approved' : 'Approve' }}
+          </button>
+        </td>
+      </tr>
+    </tbody>    
+  </table>
+  <button type="submit">Submit</button>
+</form>
+
+<!-- No Data Message -->
+<div *ngIf="data.length === 0 && !loading && !error" class="no-data-message">
+  No data available. Please load a file.
+</div>

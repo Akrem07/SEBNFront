@@ -1,0 +1,55 @@
+.useful-link{
+    padding: 20px;
+    background-color: white;
+    border-radius: 3px;
+    margin-bottom: 30px;
+}
+
+.cardd:hover {
+    box-shadow: 0 8px 50px #23232333;
+   }
+
+
+.links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    margin-bottom: 15px;
+    
+}
+
+.card-title{
+    color: #3b2d9c;
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+/* <reset-style> ============================ */
+a {
+    text-decoration: none;
+  }
+  /* <main-style> ============================ */
+  .menu__link {
+    color: black;
+    line-height: 2;
+    position: relative;
+    font-size: 1rem;
+  }
+  
+  .menu__link::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: black;
+    position: absolute;
+    bottom: -.25rem;
+    left: 0;
+    transition: width .4s;
+  }
+  
+  .menu__link:hover::before {
+    width: 100%;
+  }
